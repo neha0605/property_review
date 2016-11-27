@@ -5,12 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>propertyreview</groupId>
-    <artifactId>refactored_propertyreview</artifactId>
+    <artifactId>property_review</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
         <mysql-connector.version>5.1.31</mysql-connector.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
@@ -42,9 +43,9 @@
                     <user>root</user>
                     <password>root</password>
                     <driver>com.mysql.jdbc.Driver</driver>
-                    <url>jdbc:mysql://localhost:3306/test</url>
+                    <url>jdbc:mysql://localhost:3306/property_feedback</url>
                     <locations>
-                        <location>dbscripts/target/classes/migration</location>
+                        <location>dbscripts</location>
                     </locations>
                 </configuration>
             </plugin>

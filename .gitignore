@@ -1,3 +1,7 @@
+/property_review.iml
+/services/services.iml
+/api/api.iml
+/envs/local/service.properties
 .idea
 property_review.iml
 /api/target/
