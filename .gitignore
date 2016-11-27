@@ -1,0 +1,5 @@
+.idea
+property_review.iml
+/api/target/
+/dbscripts/target/
+/services/target/
