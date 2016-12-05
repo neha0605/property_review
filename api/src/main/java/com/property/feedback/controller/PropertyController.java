@@ -40,7 +40,7 @@ public class PropertyController extends BaseController {
     public ResponseEntity<List<ReviewViewModel>> getPublishedReviewsByPropertyId(@ApiParam(name = "propertyId", value = "id of the property to be viewed", required = true) @PathVariable(value = "id") Integer propertyId) {
         List<Review> publishedReviews = propertyService.findPublishedReviewsForProperty(propertyId);
         if (publishedReviews == null) {
-            return new ResponseEntity("error", HttpStatus.NOT_FOUND);
+            return new ResponseEntity("no reviews found", HttpStatus.NOT_FOUND);
         }
         List<ReviewViewModel> viewModels = publishedReviews.stream().map(ReviewViewModel::new).collect(Collectors.toList());
         return new ResponseEntity(viewModels, HttpStatus.OK);

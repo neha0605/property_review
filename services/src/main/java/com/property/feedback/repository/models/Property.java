@@ -1,6 +1,12 @@
 package com.property.feedback.repository.models;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +15,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "properties")
+@Cacheable(true)
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "property")
 public class Property extends BaseEntity {
 
     @Id
@@ -24,6 +32,7 @@ public class Property extends BaseEntity {
     private Double distance;
 
     @OneToMany(mappedBy = "property", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "property")
     private List<Review> reviews = new ArrayList<>();
 
     public Property() {

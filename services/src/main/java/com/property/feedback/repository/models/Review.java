@@ -1,6 +1,8 @@
 package com.property.feedback.repository.models;
 
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
 /**
@@ -8,6 +10,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "reviews")
+@Cacheable(true)
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "reviews")
 public class Review extends BaseEntity {
 
     @Id

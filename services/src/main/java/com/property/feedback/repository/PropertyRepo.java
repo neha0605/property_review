@@ -1,6 +1,7 @@
 package com.property.feedback.repository;
 
 import com.property.feedback.repository.models.Property;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,6 @@ import java.util.Optional;
 /**
  * Created by nehaojha on 07/11/16.
  */
-@Repository
 public interface PropertyRepo extends JpaRepository<Property, Integer> {
 
     @Query(value = "SELECT *," +
@@ -25,5 +25,6 @@ public interface PropertyRepo extends JpaRepository<Property, Integer> {
 
     Property findByLatitudeAndLongitude(double latitude, double longitude);
 
+    @Cacheable("property")
     Optional<Property> findByPropertyIdAndReviewsPublishedTrue(Integer propertyId);
 }
