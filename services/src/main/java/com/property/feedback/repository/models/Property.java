@@ -15,8 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "properties")
-@Cacheable(true)
-@Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "property")
+@Cacheable
 public class Property extends BaseEntity {
 
     @Id
@@ -32,7 +31,7 @@ public class Property extends BaseEntity {
     private Double distance;
 
     @OneToMany(mappedBy = "property", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "property")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "reviews")
     private List<Review> reviews = new ArrayList<>();
 
     public Property() {
