@@ -229,5 +229,14 @@
                 <build.profile.id>qa</build.profile.id>
             </properties>
         </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>prod</build.profile.id>
+            </properties>
+        </profile>
     </profiles>
 </project>
